@@ -1,5 +1,5 @@
 <html>
 <body>
-<h1>DDAC Airline Project</h1>
+<?php echo "<h1>DDAC Airline Project</h1>" ?>
 </body>
 </html>

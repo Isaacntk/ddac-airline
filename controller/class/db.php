@@ -7,7 +7,7 @@ class DB {
 	//db connection
 	private function __construct() {
 		try {			
-			$this->_pdo = new PDO('mysql:host='.Config::get('db_host').';dbname='.Config::get('db_name'),Config::get('db_username'),Config::get('db_password'));
+			$this->_pdo = new PDO('mysql:host='.Config::get('db_host').';port='.Config::get('db_port').';dbname='.Config::get('db_name'),Config::get('db_username'),Config::get('db_password'));
 		} catch(PDOException $e) {
 			die($e->getMessage());
 		}

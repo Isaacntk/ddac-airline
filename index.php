@@ -31,8 +31,8 @@
                 exit();
             }
 		?>
+        
+        <!-- Footer -->
+        <?php require_once(__DIR__.'/view/footer.php'); ?>
 	</body>
-	
-	<!-- Footer -->
-	<?php require_once(__DIR__.'/view/footer.php'); ?>
 </html>

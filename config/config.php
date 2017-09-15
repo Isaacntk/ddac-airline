@@ -22,14 +22,15 @@ class Config {
 			'write_log' => false,
 		
 			// database server
-			'db_host' => '127.0.0.1',
+			'db_host' => 'ddac-mysql.mysql.database.azure.com',
+			'db_port' => '3306',
 			
 			// database login
-			'db_username' => '',
-			'db_password' => '',
+			'db_username' => 'ddacadmin@ddac-mysql',
+			'db_password' => 'advbs170!',
 			
 			// database name
-            'db_name' => '',
+            'db_name' => 'ddacmysql',
             
 			// file directory mode
 			// 0755 = everything for owner, read and execute for others

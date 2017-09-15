@@ -12,3 +12,22 @@
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
 <script src="/js/semantic.min.js"></script>
+<style>
+  .ui.message .list:not(.ui) li:before {
+    content: '•';
+  }
+  .footer.segment {
+    padding: 5em 0em;
+  }
+  .site{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  .site-content {
+    flex: 1;
+  }
+  .hidden{
+    display:none !important;
+  }
+</style>

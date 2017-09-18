@@ -1,0 +1,7 @@
+config.inc.php
+ 
+$i++;
+$cfg['Servers'][$i]['host'] = 'ddac-mysql.mysql.database.azure.com:3306'; //provide hostname and port if other than default
+$cfg['Servers'][$i]['user'] = 'ddacadmin@ddac-mysql';   //user name for your remote server
+$cfg['Servers'][$i]['password'] = 'advbs170!';  //password
+$cfg['Servers'][$i]['auth_type'] = 'config';       // keep it as config

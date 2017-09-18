@@ -1,0 +1,32 @@
+#URL Cleaning
+RewriteEngine On
+
+#Remove Trailing Slash
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{THE_REQUEST} \s(.+?)/+[?\s]
+RewriteRule ^(.+?)/$ /BC_Webportal/$1 [R=301,L]
+
+#Rewrite request (page only)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ index.php?page=$1 [L]
+
+#Rewrite request (page and view)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/([^/]+)/(.*)/?$ index.php?page=$1&$2=$3  [L]
+
+#Rewrite request for the file lister
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/(.*)/?$ index.php?page=$1&$2=  [L]
+
+
+#Disallow viewing of htaccess files
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+php_value upload_max_filesize 10M
+php_value post_max_size 10M

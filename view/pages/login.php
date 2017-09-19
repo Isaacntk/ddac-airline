@@ -14,6 +14,8 @@
         //Check DB
         if(true){
             $_SESSION['username'] = $username;
+            header('Location: member');
+            exit();
         }
         else{
             $error = true;

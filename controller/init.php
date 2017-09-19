@@ -37,6 +37,3 @@ if(Cookie::exist(Config::get('cookie_name')) && !isset($_SESSION['ID'])) {
 		$user->login();
 	}
 }
- 
-// Load basic classes
-$user = new User();

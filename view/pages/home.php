@@ -1,3 +1,10 @@
+<?php
+    //Access Control
+    if(isset($_SESSION['username'])){
+        header('Location: member');
+        exit();
+    }
+?>
 <style type="text/css">
     .ui.inverted.segment.hero{
         background:linear-gradient(
@@ -49,8 +56,8 @@
     <h1 class="ui inverted header">
         UI Airlines
     </h1>
-    <h2>Get your cargo where you need it</h2>
-        <a class="ui huge orange button">Start Shipping</a>
+    <h2>Taking you on a journey</h2>
+        <a class="ui huge orange button">Start Flying</a>
     </div>
 </div>
 

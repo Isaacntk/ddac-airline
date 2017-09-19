@@ -6,20 +6,21 @@
 		<!-- Head -->
         <?php 
             $page = Param::get('page'); 
-            require_once (__DIR__.'/view/head.php'); 
+            require_once (__DIR__.'/view/components/head.php'); 
         ?>
 	</head>
 	
-	<body>
+	<body class="site">
 		<!-- Navigation -->
-		<?php require_once (__DIR__.'/view/nav.php'); ?>
+		<?php require_once (__DIR__.'/view/components/nav.php'); ?>
 		
-		<!-- Page -->
+        <!-- Page -->
+        <main class="site-content">
 		<?php
             //Get page
-            if (Param::get('page')) {
-                if(file_exists(__DIR__.'/view/pages/'.Param::get('page').'.php')){
-                    require_once(__DIR__.'/view/pages/'.Param::get('page').'.php');
+            if ($page) {
+                if(file_exists(__DIR__.'/view/pages/'.$page.'.php')){
+                    require_once(__DIR__.'/view/pages/'.$page.'.php');
                 }
                 else {
                     header('Location: error404');
@@ -30,9 +31,10 @@
                 header('Location: '.Config::get('home'));
                 exit();
             }
-		?>
+        ?>
+        </main>
         
         <!-- Footer -->
-        <?php require_once(__DIR__.'/view/footer.php'); ?>
+        <?php require_once(__DIR__.'/view/components/footer.php'); ?>
 	</body>
 </html>

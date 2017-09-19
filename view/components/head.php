@@ -16,6 +16,12 @@
   .ui.message .list:not(.ui) li:before {
     content: '•';
   }
+  .ui.header{
+      padding-top:4em;
+  }
+  .ui.image.header{
+      margin-top:4em;
+  }
   .footer.segment {
     padding: 5em 0em;
   }

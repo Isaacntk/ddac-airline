@@ -10,7 +10,7 @@ class Config {
 			'site_name' => 'UIA',
 			
 			// base url
-			'base_url' => 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']),
+			'base_url' => '://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']),
 			
 			// base path
 			'base_path' => realpath(__DIR__ . '/..'),

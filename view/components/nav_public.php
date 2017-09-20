@@ -5,7 +5,7 @@
                 <a href="/login" class="ui button">Log In</a>
             </div>
             <div class="item">
-                <a href="/signup" class="ui orange button">Sign Up</a>
+                <a href="/signup" class="ui primary button">Sign Up</a>
             </div>
         </div>
     </div>

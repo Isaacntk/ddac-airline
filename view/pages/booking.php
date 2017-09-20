@@ -87,7 +87,7 @@ $( document ).ready(function() {
                             <label>Seat</label>
                             <input type="text" id="seat" name="seat" class="ui input disabled fluid" value=""/>
                         </div>
-                        <button type="submit" class="ui button fluid orange large">Place Booking</button>
+                        <button type="submit" class="ui button fluid primary large">Place Booking</button>
                     </form>
                 </div>
             </div>

@@ -65,8 +65,8 @@
 
 <div class="ui middle center aligned stackable grid">
     <div class="column five wide">
-        <h2 class="ui orange image header">
-            <img src="res/img/logo.png" class="image"/>
+        <h2 class="ui primary image header">
+            <img src="/img/logo.png" class="image"/>
             <div class="content">
                 Create New Account
             </div>
@@ -87,7 +87,7 @@
                     <input type="password" name="password" placeholder="Password"/>
                 </div>
             </div>
-            <button type="submit" class="ui fluid large orange submit button">Sign Up</button>
+            <button type="submit" class="ui fluid large primary submit button">Sign Up</button>
             <div class="ui message error" <?php if($error == true) echo 'style="display:block"'; ?>>
                 <?php
                     if($error == true){

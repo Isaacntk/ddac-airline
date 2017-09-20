@@ -7,7 +7,7 @@ class Config {
 		$config = array (
 			
 			// name of website
-			'site_name' => 'DDAC Airways',
+			'site_name' => 'UIA',
 			
 			// base url
 			'base_url' => 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']),

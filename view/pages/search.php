@@ -81,7 +81,7 @@ $( document ).ready(function() {
                             <option value="SYD">Sydney (SYD)</option>
                         </select>
                     </div>
-                    <button type="submit" class="ui button fluid orange large">Search</button>
+                    <button type="submit" class="ui button fluid primary large">Search</button>
                 </form>
             </div>
         </div>

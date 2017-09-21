@@ -17,23 +17,8 @@ ob_start();
 // Load settings
 require_once (implode(DS, array(ROOT, 'config', 'config.php')));
 
-// Load escaper
-require_once (implode(DS, array(ROOT, 'lib', 'sanitize.php')));
-
 // Load classes
 foreach (glob(implode(DS, array(ROOT, 'controller', 'class', '*.php'))) as $filename)
 {
     require_once ($filename);
-}
- 
-// Auto login if cookie was found
-if(Cookie::exist(Config::get('cookie_name')) && !isset($_SESSION['ID'])) {
-	$hash = Cookie::get(Config::get('cookie_name'));
-	$hashCheck = DB::getInstance()->get('user_session', array('hash','=',$hash));
-
-	if($hashCheck->count()) {
-		$user = new User($hashCheck->first()->userID);
-		
-		$user->login();
-	}
 }

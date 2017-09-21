@@ -12,10 +12,19 @@
     $password = Param::get('password');
 
     if($username != '' & $fullname != '' & $password !=''){
-        //Check DB for existing
-        if(true){
+        //Check DB for existing user
+        $db = DB::getInstance();
+        $db->select('user', array('username','=', $username));
+        if($db->count() == 0){
             //Add new account to DB
-            
+            $db->insert('user', array(
+                'username' => $username,
+                'full_name' => $fullname,
+                'pw_hash' => hash('sha256', $password)
+            ));
+            $_SESSION['username'] = $username;
+            $_SESSION['fullname'] = $fullname;
+            header('Location: member');
         }
         else{
             $error = true;

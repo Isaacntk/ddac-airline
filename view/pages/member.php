@@ -5,16 +5,20 @@
         exit();
     }
 ?>
+<?php
+    //Get Bookings
+    $db = DB::getInstance();
+    $db->execute('SELECT seat, flight_id, departure_time, origin, destination FROM booking
+        INNER JOIN flight
+        ON booking.flight_id = flight.id
+        WHERE passenger_id="'.$_SESSION['username'].'"');
+?>
 <script>
 $( document ).ready(function() {
     $('.ui.dropdown').dropdown({
         'forceSelection':false
     });
-    $('.ui.form').form({
-        fields:{
-            origin:'empty'
-        }
-    });
+    $('.ui.form').form();
 });
 </script>
 
@@ -34,21 +38,28 @@ $( document ).ready(function() {
                             <th>Flight ID</th>
                             <th>Seat Number</th>
                             <th>Departure Time</th>
-                            <th>Source</th>
+                            <th>Origin</th>
                             <th>Destination</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>You don't currently have any bookings</td>
-                        </tr>
-                        <tr>
-                            <td>3771</td>
-                            <td>17C</td>
-                            <td>4th Jan, 3:15pm</td>
-                            <td>San Francisco</td>
-                            <td>Kuala Lumpur</td>
-                        </tr>
+                        <?php
+                            if($db->count() == 0){
+                                echo '<tr><td>You do not currently have any bookings</td></tr>';
+                            }
+                            else{
+                                foreach($db->result() as $result){
+                                    echo(
+                                        '<tr><td>'.
+                                        $result->flight_id.'</td><td>'.
+                                        $result->seat.'</td><td>'.
+                                        date("H:i, D, d M",strtotime($result->departure_time)).'</td><td>'.
+                                        $result->origin.'</td><td>'.
+                                        $result->destination.'</td></tr>'
+                                    );
+                                }
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>

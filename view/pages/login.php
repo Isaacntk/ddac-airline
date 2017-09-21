@@ -12,8 +12,12 @@
 
     if($username != '' & $password !=''){
         //Check DB
-        if(true){
+        $db = DB::getInstance();
+        $pwhash=hash('sha256', $password);
+        $db->execute('SELECT * FROM user WHERE username="'.$username.'" AND pw_hash="'.$pwhash.'"');
+        if($db->count()==1){
             $_SESSION['username'] = $username;
+            $_SESSION['fullname'] = $db->first()->full_name;
             header('Location: member');
             exit();
         }

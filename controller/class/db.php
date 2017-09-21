@@ -2,7 +2,7 @@
 
 class DB {
 	private static $_instance = null;
-	private $_pdo, $_query, $_error = false, $_result, $_count = 0, $_lastID;
+	public $_pdo, $_query, $_error = false, $_result, $_count = 0, $_lastID;
 	
 	//db connection
 	private function __construct() {
@@ -46,13 +46,14 @@ class DB {
 	
 	//prepare and execute statement
 	public function execute($sql) {
-		$query = $this->_pdo->prepare($sql);
+		$this->_query = $this->_pdo->prepare($sql);
 		
-		if($query->execute()) {
+		if($this->_query->execute()) {
 			$this->_lastID = $this->_pdo->lastInsertID();
-			return $query;
+			$this->_result = $this->_query->fetchAll(PDO::FETCH_OBJ);
+			$this->_count = $this->_query->rowCount();
 		} else {
-			return false;
+			$this->_error = true;
 		}
 	}
 	
@@ -77,7 +78,7 @@ class DB {
 	}
 	
 	//simplified SQL read query
-	public function get($table, $where) {
+	public function select($table, $where) {
 		return $this->action('SELECT *', $table, $where);
 	}
 	

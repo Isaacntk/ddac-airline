@@ -17,7 +17,7 @@
         UI Airlines
     </h1>
     <h2>Taking you on a journey</h2>
-        <a class="ui huge primary button">Start Flying</a>
+        <a href="/singup" class="ui huge primary button">Start Flying</a>
     </div>
 </div>
 

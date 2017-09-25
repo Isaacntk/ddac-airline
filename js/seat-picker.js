@@ -35,8 +35,8 @@ $.ajax({
             chart.listen('click', function() {
             var points = chart.getSelectedPoints();
                 if (points.length == 1) {
-    $('#seat').val(data[points[0].getIndex()]['id']);
-}
+                    $('#seat').val(data[points[0].getIndex()]['id']);
+                }
             });
 
             // Change Interactivity

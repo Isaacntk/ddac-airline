@@ -4,7 +4,6 @@
 <link rel="shortcut icon" type="image/png" href="/img/logo.png">
 
 <title><?php echo Config::get('site_name') . " | " . ucwords ($page) ?></title>
-<base href="<?php echo Config::get('base_url'); ?>/">
 
 <link rel="stylesheet" type="text/css" href="/css/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="/css/styles.css">

@@ -6,8 +6,16 @@ class DB {
 	
 	//db connection
 	private function __construct() {
-		try {			
-			$this->_pdo = new PDO('mysql:host='.Config::get('db_host').';port='.Config::get('db_port').';dbname='.Config::get('db_name'),Config::get('db_username'),Config::get('db_password'));
+		$conn = 'mysql:host='.Config::get('db_host').';port='.Config::get('db_port').';dbname='.Config::get('db_name');
+		$username = Config::get('db_username');
+		$password = Config::get('db_password');
+		$opt = [
+			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+			PDO::ATTR_PERSISTENT => true
+		];
+
+		try {
+			$this->_pdo = new PDO($conn,$username,$password,$opt);
 		} catch(PDOException $e) {
 			die($e->getMessage());
 		}
